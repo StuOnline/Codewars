@@ -1,0 +1,28 @@
+def determine_sequence(series_array):
+    s_a = [int(i) for i in series_array ]
+
+    if all(0 == i for i in series_array):
+        return(0)
+    else:    
+        d = (series_array[-1]-series_array[0])/(len(series_array)-1)
+
+        q = round(pow(series_array[-1]/series_array[0],(1/(len(series_array)-1))))
+
+
+        ar_prog = [float(series_array[0])]
+        for i in range(1 ,len(series_array)):
+            ar_prog.append((ar_prog[i - 1] + d))
+
+    
+        geom_prog = [float(series_array[0])]
+        for x in range(1 ,len(series_array)):
+            geom_prog.append(int((geom_prog[x - 1] * q)))
+
+        if ar_prog == s_a != geom_prog:
+            return(0)
+        elif  ar_prog == s_a == geom_prog:
+            return(2) 
+        elif  ar_prog != s_a == geom_prog and q != 0:
+            return(1)
+        elif  ar_prog != s_a == geom_prog and q == 0  or ar_prog != s_a != geom_prog:
+            return(-1)
