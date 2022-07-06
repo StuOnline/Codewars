@@ -1,9 +1,10 @@
 def remove_smallest(numbers):
-    if len(numbers) < 1 :
-        return(numbers)
-    else:
-        numbers.remove(min(numbers))
-    return(numbers)
+    if numbers is None or len(numbers) == 0:
+        return []
+    copy = numbers.copy()
+    copy.remove(min(numbers))
+    return copy
+
     
     
     
